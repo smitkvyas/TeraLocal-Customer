@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.teralocal_customer.MainActivity;
 import com.teralocal_customer.R;
 import com.teralocal_customer.databinding.ActivityOtpVerificationBinding;
+import com.teralocal_customer.ui.address.AddressActivity;
 import com.teralocal_customer.ui.login.models.OTPVerificationDetails;
 
 import java.util.Objects;
@@ -39,11 +40,12 @@ public class OtpVerificationActivity extends AppCompatActivity {
 
         otpVerificationViewModel.verificationDetailsMutableLiveData.observe(this, otpVerificationDetails -> {
             if (otpVerificationDetails.isOTPVerified()) {
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, AddressActivity.class));
                 finish();
             } else if (otpVerificationDetails.isOTPSent()) {
                 verificationStage = VERIFICATION_STAGE.OTP_SENT;
                 activityOtpVerificationBinding.edtOTP.setEnabled(true);
+                activityOtpVerificationBinding.btnProceed.setText("Verify OTP");
                 Toast.makeText(this, "OTP sent, please enter", Toast.LENGTH_SHORT).show();
             } else {
                 switch (verificationStage) {
