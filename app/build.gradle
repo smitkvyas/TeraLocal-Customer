@@ -26,14 +26,39 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        flowTest {
+            buildConfigField "String", "TOKEN", "\"ekjrkngrg\""
+            buildConfigField "String", "REFRESH_TOKEN", "\"gorungiwurgbwornf\""
+            buildConfigField "Integer", "OTP", "123123"
+
+            buildConfigField "String", "BASE_URL", "\"https://localhost:8080\""
+        }
+    }
 }
 
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+    implementation 'com.google.android.gms:play-services-auth:20.6.0'
 }

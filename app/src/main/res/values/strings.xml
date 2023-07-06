@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TeraLocal - Customer</string>
+    <!--<string name="default_web_client_id">1045978629965-g0cnpkr8c9kpkttlg533danieblam60s.apps.googleusercontent.com</string>-->
+    <string name="default_web_client_id">1045978629965-00sn6352frenvl4s22214onn7mkiacf4.apps.googleusercontent.com</string>
 </resources>
